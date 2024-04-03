@@ -52,8 +52,9 @@
                     <div class="contacts grow">
                         <div 
                         v-for="singleUser, index in contacts" 
-                        class="user-card d-flex algn-cntr anchor selected"
+                        class="user-card d-flex algn-cntr anchor"
                         @click="selectContac(index)"
+                        :class="{'selected': index === activeUser}"
                         >
                             <img :src="'/img/avatar' + singleUser.avatar + '.jpg'" alt="active user image">
                             <div class="user-info">

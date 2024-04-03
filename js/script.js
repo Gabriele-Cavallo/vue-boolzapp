@@ -99,8 +99,8 @@ createApp({
         };
     },
     methods: {
-      selectContac(index) {
-        this.activeUser = index;
+      selectContac(indexContact) {
+        this.activeUser = indexContact;
       }
     }
 }).mount('#app');
