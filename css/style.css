@@ -173,7 +173,7 @@ i{
     overflow-y: auto;
 }
 .col-70 .active-chat{
-    background-image: url(/img/mine.jpg);
+    background-image: url(../img/mine.jpg);
 }
 .text-user-input input{
     padding-left: 10px;
