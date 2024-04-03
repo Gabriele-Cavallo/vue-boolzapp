@@ -73,6 +73,9 @@ i{
 /* #endregion GENERAL */
 
 /* #region COL-30 */
+.user-menu i{
+    color: #b1b1b1;
+}
 .notification{
     height: 10%;
     background-color: #8edafc;
