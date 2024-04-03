@@ -20,9 +20,9 @@
                     <!-- User menu -->
                     <div class="user d-flex jst-btwn algn-cntr">
                         <div class="user-card d-flex algn-cntr">
-                            <img src="/img/avatar_1.jpg" alt="active user image">
+                            <img src="/img/avatar_io.jpg" alt="active user image">
                             <div class="user-info">
-                                <div>[user-name]</div>
+                                <div class="fw-bold">Sofia</div>
                             </div>
                         </div>
                         <div class="user-menu">
@@ -50,10 +50,13 @@
 
                     <!-- Contacts List -->
                     <div class="contacts grow">
-                        <div v-for="singleUser, index in contacts" class="user-card d-flex algn-cntr anchor selected">
+                        <div 
+                        v-for="singleUser, index in contacts" 
+                        class="user-card d-flex algn-cntr anchor selected"
+                        @click="selectContac(index)">
                             <img :src="'/img/avatar' + singleUser.avatar + '.jpg'" alt="active user image">
                             <div class="user-info">
-                                <div>{{singleUser.name}}</div>
+                                <div class="fw-bold">{{singleUser.name}}</div>
                                 <div class="time-access">[time]</div>
                                 <div class="access-info">[user-access]</div>
                             </div>
@@ -76,9 +79,9 @@
                     <!-- Active user bar -->
                     <div class="active-user d-flex jst-btwn algn-cntr">
                         <div class="user-card d-flex algn-cntr">
-                            <img src="/img/avatar_1.jpg" alt="active user image">
+                            <img :src="'/img/avatar' + contacts[activeUser].avatar + '.jpg'" alt="active user image">
                             <div class="user-info">
-                                <div>[user-name]</div>
+                                <div class="fw-bold">[user-name]</div>
                                 <div class="time-access">[time]</div>
                             </div>
                         </div>

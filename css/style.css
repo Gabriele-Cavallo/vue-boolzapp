@@ -83,6 +83,9 @@ i{
 .h-75{
     height: 75%;
 }
+.fw-bold{
+    font-weight: bold;
+}
 /* #endregion GENERAL */
 
 /* #region COL-30 */

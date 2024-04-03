@@ -95,9 +95,12 @@ createApp({
                 ],
               },
             ],
-            activeUser: 0,
+            activeUser: 1,
         };
     },
     methods: {
+      selectContac(index) {
+        this.activeUser = index;
+      }
     }
 }).mount('#app');
