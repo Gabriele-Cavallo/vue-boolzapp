@@ -70,6 +70,13 @@ i{
 .flex-col{
     flex-direction: column;
 }
+.w-10{
+    width: 10%;
+    text-align: center;
+}
+.h-75{
+    height: 75%;
+}
 /* #endregion GENERAL */
 
 /* #region COL-30 */
@@ -136,10 +143,13 @@ i{
 
 /* #region COL-70 */
 .active-user,
-.text-user-input,
 .user{
     height: 10%;
     background-color: #eaeaea;
+}
+.text-user-input{
+    height: 10%;
+    background-color: #f3eeea;
 }
 .active-chat{
     height: 80%;
@@ -147,6 +157,16 @@ i{
 }
 .col-70 .active-chat{
     background-image: url(/img/mine.jpg);
+}
+.text-user-input input{
+    padding-left: 10px;
+    border-radius: 10px;
+    border: 1px solid white;
+    font-size: 20px;
+}
+.text-user-input i{
+    color: #6b7376;
+    margin: 0;
 }
 /* #endregion COL-70 */
 
