@@ -3,9 +3,44 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* border: 1px solid red; */
+}
+body{
+    position: relative;
 }
 /* #endregion RESET */
 
 /* #region GENERAL */
+header{
+    height: 20vh;
+    background-color: #009688;
+}
+main{
+    height: 80vh;
+    background-color: #dbdbd3;
+}
+.app-container{
+    background-color: white;
+    width: 80vw;
+    height: 95vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 /* #endregion GENERAL */
+
+/* #region MEDIA-QUERY */
+@media screen and (max-width: 1200px){
+    .app-container{
+        min-width: 1000px;
+        min-height: 95vh;
+    }
+    body{
+        overflow-y: hidden;
+    }
+}
+/* #endregion MEDIA-QUERY */
+
+
 
