@@ -7,6 +7,7 @@
 }
 body{
     position: relative;
+    background-color: #dbdbd3;
 }
 /* #endregion RESET */
 
@@ -48,6 +49,7 @@ main{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    border: 1px solid black;
 }
 .col-30{
     position: absolute;
@@ -248,13 +250,29 @@ i{
 
 
 /* #region MEDIA-QUERY */
-@media screen and (max-width: 1200px){
+@media screen and (max-width: 1280px){
     .app-container{
-        min-width: 1000px;
+        min-width: 1200px;
         min-height: 95vh;
+        position: relative;
+        top:50%;
+        left: 50%;
+        transform: translate(-50% , -50%);
     }
-    body{
-        overflow-y: hidden;
+    header{
+        width: 300vw;
+    }
+    main{
+        width: 200%;
+    }
+}
+@media screen and (max-height: 800px){
+    .app-container{
+        min-height: 760px;
+        position: relative;
+        top:75%;
+        left: 50%;
+        transform: translate(-50% , -50%);
     }
 }
 /* #endregion MEDIA-QUERY */
