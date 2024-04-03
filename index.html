@@ -53,7 +53,8 @@
                         <div 
                         v-for="singleUser, index in contacts" 
                         class="user-card d-flex algn-cntr anchor selected"
-                        @click="selectContac(index)">
+                        @click="selectContac(index)"
+                        >
                             <img :src="'/img/avatar' + singleUser.avatar + '.jpg'" alt="active user image">
                             <div class="user-info">
                                 <div class="fw-bold">{{singleUser.name}}</div>
@@ -81,7 +82,7 @@
                         <div class="user-card d-flex algn-cntr">
                             <img :src="'/img/avatar' + contacts[activeUser].avatar + '.jpg'" alt="active user image">
                             <div class="user-info">
-                                <div class="fw-bold">[user-name]</div>
+                                <div class="fw-bold">{{contacts[activeUser].name}}</div>
                                 <div class="time-access">[time]</div>
                             </div>
                         </div>
@@ -95,15 +96,18 @@
 
                     <!-- Chat box -->
                     <div class="active-chat">
-                        <div class="user-text">
-                            <div class="chat-bubble chat-bubble-user anchor">
+                        <div 
+                        v-for="chatMessage in contacts[activeUser].messages"  
+                        :class="{'user-text': chatMessage.status === 'sent'}"
+                        >
+                            <div class="chat-bubble anchor" :class="{'chat-bubble-user': chatMessage.status === 'sent', 'answer-text': chatMessage.status === 'received'}">
                                 <div>
-                                    [user-message]
+                                    {{chatMessage.message}}
                                 </div>
                                 <small class="send-time">[send-time]</small>
                             </div>
                         </div>
-                        <div class="user-text">
+                        <!-- <div class="user-text">
                             <div class="chat-bubble chat-bubble-user anchor">
                                 <div>[user-message]</div>
                                 <small class="send-time">[send-time]</small>
@@ -114,7 +118,7 @@
                                 <div>[answer-message]</div>
                                 <div class="send-time">[send-time]</div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <!-- /Chat box -->
 
