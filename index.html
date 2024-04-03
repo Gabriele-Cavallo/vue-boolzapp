@@ -19,7 +19,7 @@
                 <div class="col-30 d-flex flex-col">
                     <!-- User menu -->
                     <div class="user d-flex jst-btwn algn-cntr">
-                        <div class="user-card d-flex algn-cntr">
+                        <div class="user-card d-flex algn-cntr cursor-pointer">
                             <img src="/img/avatar_io.jpg" alt="active user image">
                             <div class="user-info">
                                 <div class="fw-bold">Sofia</div>
@@ -52,7 +52,7 @@
                     <div class="contacts grow">
                         <div 
                         v-for="singleUser, index in searchContact" 
-                        class="user-card d-flex algn-cntr anchor"
+                        class="user-card d-flex algn-cntr anchor cursor-pointer"
                         @click="selectContac(index)"
                         :class="{'selected': index === activeUser}"
                         >
@@ -98,14 +98,18 @@
                     <!-- Chat box -->
                     <div class="active-chat">
                         <div 
-                        v-for="chatMessage in contacts[activeUser].messages"  
+                        v-for="chatMessage, index in contacts[activeUser].messages"  
                         :class="{'user-text': chatMessage.status === 'sent'}"
                         >
-                            <div class="chat-bubble anchor" :class="{'chat-bubble-user': chatMessage.status === 'sent', 'answer-text': chatMessage.status === 'received'}">
+                            <div @mouseLeave="mouseLeaveDropDown(index)" @click="showDropDown(index)" class="chat-bubble anchor cursor-pointer" :class="{'chat-bubble-user': chatMessage.status === 'sent', 'answer-text': chatMessage.status === 'received'}">
                                 <div>
                                     {{chatMessage.message}}
                                 </div>
                                 <small class="send-time">[send-time]</small>
+                                <div :class="{'visibile': contacts[index].visible === false, 'hide': contacts[index].visible === true}" class="dropdown-wrapper">
+                                    <div>Message Info</div>
+                                    <div @click="deleteMessage(index)">Delete Message</div>
+                                </div>
                             </div>
                         </div>
                     </div>

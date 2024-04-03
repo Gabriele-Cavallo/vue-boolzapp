@@ -133,6 +133,27 @@ createApp({
       answerTimeout(message){
         setTimeout(message, 1000)
       },
+      // funzione che regola lo stato di visibilità del dropdown menu
+      // index ---> indice che seleziona il messaggio su cui è stato chiamto il dropdown
+      showDropDown(indexMessage){
+        if (this.contacts[indexMessage].visible){
+          this.contacts[indexMessage].visible = false;
+        }else{
+          this.contacts[indexMessage].visible = true;
+        }
+      },
+      // funzione che chiude il dropdown menu quando il mouse lascia l'area del messaggio
+      // index ---> indice che seleziona il messaggio su cui è stato chiamto il dropdown
+      mouseLeaveDropDown(indexMessage){
+        if (!this.contacts[indexMessage].visible){
+          this.contacts[indexMessage].visible = true;
+        }
+      },
+      // funzione che elimina i messaggi dalla chat
+      // index ---> indice del messaggio da cancellare
+      deleteMessage(indexMessage){
+        this.contacts[this.activeUser].messages.splice(indexMessage, 1);
+      }
     },
     computed: {
       // funzione che filtra l'array contacts 

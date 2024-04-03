@@ -88,6 +88,9 @@ i{
 .fw-bold{
     font-weight: bold;
 }
+.cursor-pointer{
+    cursor: pointer;
+}
 /* #endregion GENERAL */
 
 /* #region COL-30 */
@@ -246,7 +249,34 @@ i{
 }
 /* #endregion ACTIVE-CHAT */
 
-
+/* #region DROPDOWN-MENU */
+.visible{
+    display: block;
+}
+.hide{
+    display: none;
+}
+.chat-bubble .dropdown-wrapper{
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    z-index: 99;
+    background-color: #d5f9ba;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.dropdown-wrapper div:first-child{
+    margin-bottom: 5px;
+}
+.dropdown-wrapper *{
+    cursor: pointer;
+    color: grey;
+}
+.dropdown-wrapper div:hover{
+    color: black
+}
+/* #endregion DROPDOWN-MENU */
 
 
 /* #region MEDIA-QUERY */
