@@ -97,6 +97,7 @@ createApp({
             ],
             // chiave che permette di gestire il contatto e la chat attiva
             activeUser: 0,
+            newMessage: ''
         };
     },
     methods: {
@@ -104,6 +105,26 @@ createApp({
       // indexContact ---> indice ricavato dal v-for che gestisce il contatto attivo 
       selectContac(indexContact) {
         this.activeUser = indexContact;
+      },
+      writeMessage(){
+        const userMessage= {
+          date: '',
+          message: this.newMessage,
+          status: 'sent'
+        };
+        this.contacts[this.activeUser].messages.push(userMessage);
+        this.newMessage = '';
+      },
+      answerMessage(){
+        const answer= {
+          date: '',
+          message: 'ok',
+          status: 'received'
+        }
+        this.contacts[this.activeUser].messages.push(answer);
+      },
+      answerTimeout(message){
+        setTimeout(message, 1000)
       }
     }
 }).mount('#app');

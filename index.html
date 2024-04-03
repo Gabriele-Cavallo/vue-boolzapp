@@ -108,25 +108,13 @@
                                 <small class="send-time">[send-time]</small>
                             </div>
                         </div>
-                        <!-- <div class="user-text">
-                            <div class="chat-bubble chat-bubble-user anchor">
-                                <div>[user-message]</div>
-                                <small class="send-time">[send-time]</small>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="answer-text chat-bubble anchor">
-                                <div>[answer-message]</div>
-                                <div class="send-time">[send-time]</div>
-                            </div>
-                        </div> -->
                     </div>
                     <!-- /Chat box -->
 
                     <!-- User input bar -->
                     <div class="text-user-input d-flex algn-cntr">
                         <i class="fa-regular fa-face-smile w-10"></i>
-                        <input type="text" placeholder="Scrivi un messaggio" class="grow h-75">
+                        <input v-model="newMessage" @keyUp.enter="writeMessage(answerTimeout(answerMessage))" type="text" placeholder="Scrivi un messaggio" class="grow h-75">
                         <i class="fa-solid fa-microphone w-10"></i>
                     </div>
                     <!-- /User input bar -->
