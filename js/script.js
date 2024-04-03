@@ -95,10 +95,13 @@ createApp({
                 ],
               },
             ],
-            activeUser: 1,
+            // chiave che permette di gestire il contatto e la chat attiva
+            activeUser: 0,
         };
     },
     methods: {
+      // funzione che tramite l'index ricevuto attiva il contatto selezionato
+      // indexContact ---> indice ricavato dal v-for che gestisce il contatto attivo 
       selectContac(indexContact) {
         this.activeUser = indexContact;
       }
