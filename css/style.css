@@ -11,6 +11,9 @@ body{
 /* #endregion RESET */
 
 /* #region GENERAL */
+img{
+    max-width: 100%;
+}
 header{
     height: 20vh;
     background-color: #009688;
@@ -24,6 +27,9 @@ main{
 }
 .d-flex{
     display: flex;
+}
+.flex-wrap{
+    flex-wrap: wrap;
 }
 .jst-btwn{
     justify-content: space-between;
@@ -90,8 +96,9 @@ i{
 }
 .notification .item-container{
     background-color: white;
-    width: 75px;
-    height: 75px;
+    max-width: 75px;
+    max-height: 75px;
+    padding: 15px;
     border-radius: 50%;
 }
 .notification i{
@@ -202,6 +209,37 @@ i{
     background-color: #e9ebeb;
 }
 /* #endregion USER-CARD */
+
+/* #region ACTIVE-CHAT */
+.active-chat{
+    padding: 5% 10%;
+}
+.user-text{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.chat-bubble{
+    width: 20%;
+    padding: 15px 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.chat-bubble-user{
+    background-color: #d5f9ba;
+}
+.answer-text{
+    background-color: white;
+}
+.send-time{
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    color: grey;
+    font-size: smaller;
+}
+/* #endregion ACTIVE-CHAT */
+
 
 
 
