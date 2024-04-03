@@ -43,7 +43,7 @@
                     <div class="user-search d-flex algn-cntr jst-cntr">
                         <div class="search-bar d-flex algn-cntr">
                             <i class="fa-solid fa-magnifying-glass"></i>
-                            <input type="text" placeholder="Cerca o inizia una nuova chat">
+                            <input @keyUp="searchContact()" v-model="searchList" type="text" placeholder="Cerca o inizia una nuova chat">
                         </div>
                     </div>
                     <!-- /User menu -->
@@ -51,7 +51,7 @@
                     <!-- Contacts List -->
                     <div class="contacts grow">
                         <div 
-                        v-for="singleUser, index in contacts" 
+                        v-for="singleUser, index in searchContact" 
                         class="user-card d-flex algn-cntr anchor"
                         @click="selectContac(index)"
                         :class="{'selected': index === activeUser}"

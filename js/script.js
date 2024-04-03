@@ -97,7 +97,8 @@ createApp({
             ],
             // chiave che permette di gestire il contatto e la chat attiva
             activeUser: 0,
-            newMessage: ''
+            newMessage: '',
+            searchList: ''
         };
     },
     methods: {
@@ -125,6 +126,13 @@ createApp({
       },
       answerTimeout(message){
         setTimeout(message, 1000)
+      },
+    },
+    computed: {
+      searchContact(){
+        return this.contacts.filter((contact) => {
+          return contact.name.toLowerCase().includes(this.searchList.toLowerCase());
+        });
       }
     }
 }).mount('#app');
