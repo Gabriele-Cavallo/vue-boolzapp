@@ -19,6 +19,7 @@ createApp({
                 name: 'Michele',
                 avatar: '_1',
                 visible: true,
+                dropDown: true,
                 messages: [{
                     date: '10/01/2020 15:30:55',
                     message: 'Hai portato a spasso il cane?',
@@ -40,6 +41,7 @@ createApp({
                 name: 'Fabio',
                 avatar: '_2',
                 visible: true,
+                dropDown: true,
                 messages: [{
                     date: '20/03/2020 16:30:00',
                     message: 'Ciao come stai?',
@@ -61,6 +63,7 @@ createApp({
                 name: 'Samuele',
                 avatar: '_3',
                 visible: true,
+                dropDown: true,
                 messages: [{
                     date: '28/03/2020 10:10:40',
                     message: 'La Marianna va in campagna',
@@ -82,6 +85,7 @@ createApp({
                 name: 'Luisa',
                 avatar: '_4',
                 visible: true,
+                dropDown: true,
                 messages: [{
                     date: '10/01/2020 15:30:55',
                     message: 'Lo sai che ha aperto una nuova pizzeria?',
@@ -131,22 +135,22 @@ createApp({
       // funzione che ritarda il messaggio di risposta 1 sec dopo che l'utente rilascia il tasto enter
       // message ---> messaggio pubblicato in chat a risposta di un keyUp dell'utente
       answerTimeout(message){
-        setTimeout(message, 1000)
+        setTimeout(message, 1000);
       },
       // funzione che regola lo stato di visibilità del dropdown menu
       // index ---> indice che seleziona il messaggio su cui è stato chiamto il dropdown
       showDropDown(indexMessage){
-        if (this.contacts[indexMessage].visible){
-          this.contacts[indexMessage].visible = false;
+        if (this.contacts[indexMessage].dropDown){
+          this.contacts[indexMessage].dropDown = false;
         }else{
-          this.contacts[indexMessage].visible = true;
+          this.contacts[indexMessage].dropDown = true;
         }
       },
       // funzione che chiude il dropdown menu quando il mouse lascia l'area del messaggio
       // index ---> indice che seleziona il messaggio su cui è stato chiamto il dropdown
       mouseLeaveDropDown(indexMessage){
-        if (!this.contacts[indexMessage].visible){
-          this.contacts[indexMessage].visible = true;
+        if (!this.contacts[indexMessage].dropDown){
+          this.contacts[indexMessage].dropDown = true;
         }
       },
       // funzione che elimina i messaggi dalla chat

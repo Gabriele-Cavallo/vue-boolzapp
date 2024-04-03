@@ -106,7 +106,7 @@
                                     {{chatMessage.message}}
                                 </div>
                                 <small class="send-time">[send-time]</small>
-                                <div :class="{'visibile': contacts[index].visible === false, 'hide': contacts[index].visible === true}" class="dropdown-wrapper">
+                                <div  class="dropdown-wrapper" :class="{'visibile': contacts[index].dropDown === false, 'hide': contacts[index].dropDown === true}">
                                     <div>Message Info</div>
                                     <div @click="deleteMessage(index)">Delete Message</div>
                                 </div>
