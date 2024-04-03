@@ -95,7 +95,7 @@ i{
 /* #region USER-CARD */
 .user-card{
     height: 100%;
-    margin-left: 10px;
+    padding-left: 10px;
 }
 .user-card img{
     border-radius: 50%;
@@ -104,9 +104,19 @@ i{
 .user-info{
     margin-left: 20px;
 }
-.user-info div:last-child {
+.user-info .access-info {
     margin-top: 10px;
     color: grey;
+}
+.contacts .user-card{
+    max-height: 15%;
+    background-color: white;
+    padding-left: 20px;
+}
+.access-info{
+    position: absolute;
+    right: 10px;
+    top: 0;
 }
 /* #endregion USER-CARD */
 
