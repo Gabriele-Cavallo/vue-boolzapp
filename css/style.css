@@ -19,6 +19,12 @@ main{
     height: 80vh;
     background-color: #dbdbd3;
 }
+.anchor{
+    position: relative;
+}
+.d-flex{
+    display: flex;
+}
 .app-container{
     background-color: white;
     width: 80vw;
@@ -28,7 +34,49 @@ main{
     left: 50%;
     transform: translate(-50%, -50%);
 }
+.col-30{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 30%;
+    height: 100%;
+    background-color: greenyellow;
+}
+.col-70{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 70%;
+    height: 100%;
+    background-color: blue;
+}
 /* #endregion GENERAL */
+
+/* #region COL-70 */
+.active-user,
+.text-user-input,
+.user{
+    height: 10%;
+    background-color: red;
+}
+.active-chat{
+    height: 80%;
+    overflow-y: auto;
+}
+.notification{
+    height: 15%;
+    background-color: yellow;
+}
+.user-search{
+    height: 5%;
+    background-color: pink;
+}
+.contacts{
+    height: 70%;
+    background-color: aquamarine;
+    overflow-y: auto;
+}
+/* #endregion COL-70 */
 
 /* #region MEDIA-QUERY */
 @media screen and (max-width: 1200px){
