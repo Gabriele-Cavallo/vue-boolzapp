@@ -25,6 +25,12 @@ main{
 .d-flex{
     display: flex;
 }
+.jst-btwn{
+    justify-content: space-between;
+}
+.algn-cntr{
+    align-items: center;
+}
 .app-container{
     background-color: white;
     width: 80vw;
@@ -41,6 +47,7 @@ main{
     width: 30%;
     height: 100%;
     background-color: greenyellow;
+    border-right: 1px solid grey;
 }
 .col-70{
     position: absolute;
@@ -48,7 +55,11 @@ main{
     top: 0;
     width: 70%;
     height: 100%;
-    background-color: blue;
+}
+i{
+    color: #afafb6;
+    font-size: 30px;
+    margin-right: 30px;
 }
 /* #endregion GENERAL */
 
@@ -57,7 +68,7 @@ main{
 .text-user-input,
 .user{
     height: 10%;
-    background-color: red;
+    background-color: #eaeaea;
 }
 .active-chat{
     height: 80%;
@@ -76,7 +87,30 @@ main{
     background-color: aquamarine;
     overflow-y: auto;
 }
+.col-70 .active-chat{
+    background-image: url(/img/mine.jpg);
+}
 /* #endregion COL-70 */
+
+/* #region USER-CARD */
+.user-card{
+    height: 100%;
+    margin-left: 10px;
+}
+.user-card img{
+    border-radius: 50%;
+    height: 85%;
+}
+.user-info{
+    margin-left: 20px;
+}
+.user-info div:last-child {
+    margin-top: 10px;
+    color: grey;
+}
+/* #endregion USER-CARD */
+
+
 
 /* #region MEDIA-QUERY */
 @media screen and (max-width: 1200px){
