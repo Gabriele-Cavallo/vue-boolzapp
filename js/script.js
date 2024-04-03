@@ -97,7 +97,9 @@ createApp({
             ],
             // chiave che permette di gestire il contatto e la chat attiva
             activeUser: 0,
+            // chiave che valorizza il messaggio inserito dall'utente nell'input
             newMessage: '',
+            // chiave che regola la search bar dei contact
             searchList: ''
         };
     },
@@ -107,6 +109,7 @@ createApp({
       selectContac(indexContact) {
         this.activeUser = indexContact;
       },
+      // funzione che legge l'input dell'utente e lo aggiunge all'elenco della chat
       writeMessage(){
         const userMessage= {
           date: '',
@@ -116,6 +119,7 @@ createApp({
         this.contacts[this.activeUser].messages.push(userMessage);
         this.newMessage = '';
       },
+      // funzione che genera il messaggio di risposta
       answerMessage(){
         const answer= {
           date: '',
@@ -124,11 +128,15 @@ createApp({
         }
         this.contacts[this.activeUser].messages.push(answer);
       },
+      // funzione che ritarda il messaggio di risposta 1 sec dopo che l'utente rilascia il tasto enter
+      // message ---> messaggio pubblicato in chat a risposta di un keyUp dell'utente
       answerTimeout(message){
         setTimeout(message, 1000)
       },
     },
     computed: {
+      // funzione che filtra l'array contacts 
+      // return: torna un nuovo array filtrato tramite la search bar
       searchContact(){
         return this.contacts.filter((contact) => {
           return contact.name.toLowerCase().includes(this.searchList.toLowerCase());
