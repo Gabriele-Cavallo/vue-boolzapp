@@ -95,6 +95,7 @@ createApp({
                 ],
               },
             ],
+            activeUser: 0,
         };
     },
     methods: {
