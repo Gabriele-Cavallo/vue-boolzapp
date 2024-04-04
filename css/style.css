@@ -129,9 +129,9 @@ i{
     margin-top: 10px;
 }
 .user-search{
-    height: 7%;
+    min-height: 55px;
     background-color: #fafafa;
-    padding: 10px 0;
+    padding: 5px 0;
 }
 .user-search i{
     font-size: 20px;
@@ -141,7 +141,7 @@ i{
 }
 .user-search .search-bar{
     background-color: white;
-    width: 95%;
+    width: 98%;
     height: 100%;
     border: 1px solid #f5f5f5;
 }
@@ -204,6 +204,9 @@ i{
     margin-top: 10px;
     color: grey;
 }
+.time-access{
+    font-size: 14px;
+}
 .contacts .user-card{
     max-height: 10%;
     background-color: white;
@@ -215,6 +218,7 @@ i{
     right: 10px;
     top: 10px;
     color: grey;
+    font-size: 14px;
 }
 .contacts .selected{
     background-color: lightgray;
@@ -303,19 +307,26 @@ i{
         transform: translate(-50% , -50%);
     }
     header{
-        width: 300vw;
+        width: 200vw;
     }
     main{
         width: 200%;
     }
 }
-@media screen and (max-height: 800px){
+@media screen and (max-height: 900px){
     .app-container{
         min-height: 760px;
         position: relative;
-        top:75%;
+        top:50%;
         left: 50%;
         transform: translate(-50% , -50%);
+    }
+    .last-message{
+        display: none;
+    }
+    .time-access,
+    .access-info{
+        font-size: 12px;
     }
 }
 /* #endregion MEDIA-QUERY */
