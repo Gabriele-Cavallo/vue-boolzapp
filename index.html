@@ -21,7 +21,7 @@
                     <div class="user d-flex jst-btwn algn-cntr">
                         <!-- User template -->
                         <div class="user-card d-flex algn-cntr cursor-pointer">
-                            <img src="img/avatar_io.jpg" alt="active user image">
+                            <img src="./img/avatar_io.jpg" alt="active user image">
                             <div class="user-info">
                                 <div class="fw-bold">Sofia</div>
                             </div>
@@ -63,7 +63,7 @@
                         :class="{'selected': index === activeUser}"
                         >
                             <!-- Single contact template -->
-                            <img :src="'img/avatar' + singleUser.avatar + '.jpg'" alt="active user image">
+                            <img :src="'./img/avatar' + singleUser.avatar + '.jpg'" alt="active user image">
                             <div class="user-info">
                                 <div class="fw-bold">{{singleUser.name}}</div>
                                 <div class="access-info">{{time}}</div>
@@ -81,7 +81,7 @@
                     <div class="active-user d-flex jst-btwn algn-cntr">
                         <!-- User card -->
                         <div class="user-card d-flex algn-cntr">
-                            <img :src="'img/avatar' + contacts[activeUser].avatar + '.jpg'" alt="active user image">
+                            <img :src="'./img/avatar' + contacts[activeUser].avatar + '.jpg'" alt="active user image">
                             <div class="user-info">
                                 <div class="fw-bold">{{contacts[activeUser].name}}</div>
                                 <div class="time-access">{{time}}</div>
