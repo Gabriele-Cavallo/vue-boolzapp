@@ -124,6 +124,7 @@ createApp({
       // funzione che legge l'input dell'utente e lo aggiunge all'elenco della chat
       writeMessage(){
         const userMessage= {
+          // data e ora attuale
           date: this.contacts[this.activeUser].messages.date,
           message: this.newMessage,
           status: 'sent',
@@ -135,6 +136,7 @@ createApp({
       // funzione che genera il messaggio di risposta
       answerMessage(){
         const answer= {
+          // data e ora attuale
           date: this.contacts[this.activeUser].messages.date,
           message: 'ok',
           status: 'received',
@@ -148,23 +150,23 @@ createApp({
         setTimeout(message, 1000);
       },
       // funzione che regola lo stato di visibilità del dropdown menu
-      // index ---> indice che seleziona il messaggio su cui è stato chiamto il dropdown
-      showDropDown(index){
-        if (this.contacts[this.activeUser].messages[index].dropDown){
-          this.contacts[this.activeUser].messages[index].dropDown = false;
+      // indexMessage ---> indice che seleziona il messaggio su cui è stato chiamto il dropdown
+      showDropDown(indexMessage){
+        if (this.contacts[this.activeUser].messages[indexMessage].dropDown){
+          this.contacts[this.activeUser].messages[indexMessage].dropDown = false;
         }else{
-          this.contacts[this.activeUser].messages[index].dropDown = true;
+          this.contacts[this.activeUser].messages[indexMessage].dropDown = true;
         }
       },
       // funzione che chiude il dropdown menu quando il mouse lascia l'area del messaggio
-      // index ---> indice che seleziona il messaggio su cui è stato chiamto il dropdown
+      // indexMessage ---> indice che seleziona il messaggio su cui è stato chiamto il dropdown
       mouseLeaveDropDown(indexMessage){
         if (!this.contacts[this.activeUser].messages[indexMessage].dropDown){
           this.contacts[this.activeUser].messages[indexMessage].dropDown = true;
         }
       },
       // funzione che elimina i messaggi dalla chat
-      // index ---> indice del messaggio da cancellare
+      // indexMessage ---> indice del messaggio da cancellare
       deleteMessage(indexMessage){
         this.contacts[this.activeUser].messages.splice(indexMessage, 1);
       },
