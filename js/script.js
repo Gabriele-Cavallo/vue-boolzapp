@@ -11,6 +11,7 @@
 //   relativi al contatto attivo all’interno del pannello della conversazione
 // - Click sul contatto mostra la conversazione del contatto cliccato
 const { createApp } = Vue;
+// const dateTime = luxon.DateTime;
 
 createApp({
     data() {
@@ -157,6 +158,10 @@ createApp({
       // index ---> indice del messaggio da cancellare
       deleteMessage(indexMessage){
         this.contacts[this.activeUser].messages.splice(indexMessage, 1);
+      },
+      // funzione per avere data e ora corrente
+      getCurrentDate(index){
+        this.contacts[activeUser].messages[index].date = dateTime.now().setLocale('fr').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
       }
     },
     computed: {
