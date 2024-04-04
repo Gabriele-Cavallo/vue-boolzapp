@@ -199,7 +199,8 @@ i{
 .user-info{
     margin-left: 20px;
 }
-.user-card .time-access {
+.user-card .time-access,
+.user-card .last-message {
     margin-top: 10px;
     color: grey;
 }
