@@ -102,6 +102,7 @@ i{
     height: 10%;
     background-color: #8edafc;
     padding-left: 20px;
+    padding-right: 10px;
 }
 .notification .item-container{
     background-color: white;
