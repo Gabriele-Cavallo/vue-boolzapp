@@ -114,6 +114,7 @@ createApp({
             newMessage: '',
             // chiave che regola la search bar dei contact
             searchList: '',
+            currentDate: '',
             time: ''
         };
     },
@@ -127,7 +128,7 @@ createApp({
       writeMessage(){
         const userMessage= {
           // data e ora attuale
-          date: this.contacts[this.activeUser].messages.date,
+          date: this.currentDate,
           message: this.newMessage,
           status: 'sent',
           dropDown: true
@@ -139,7 +140,7 @@ createApp({
       answerMessage(){
         const answer= {
           // data e ora attuale
-          date: this.contacts[this.activeUser].messages.date,
+          date: this.currentDate,
           message: 'ok',
           status: 'received',
           dropDown: true,
@@ -174,7 +175,7 @@ createApp({
       },
       // funzione per avere data e ora corrente
       getCurrentDate(){
-        this.contacts[this.activeUser].messages.date = dt.now().setLocale('fr').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
+        this.currentDate = dt.now().setLocale('fr').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
       },
       // funzione per avere data e ora corrente nella chiave time
       realTimeDate(){
