@@ -182,6 +182,7 @@ createApp({
       }
     },
     mounted() {
+      // funzione che al caricamento della pagina ricava data e ora attuali
       this.realTimeDate();
     },
     computed: {
