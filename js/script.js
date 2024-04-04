@@ -20,21 +20,23 @@ createApp({
                 name: 'Michele',
                 avatar: '_1',
                 visible: true,
-                dropDown: true,
                 messages: [{
                     date: '10/01/2020 15:30:55',
                     message: 'Hai portato a spasso il cane?',
-                    status: 'sent'
+                    status: 'sent',
+                    dropDown: true,
                   },
                   {
                     date: '10/01/2020 15:50:00',
                     message: 'Ricordati di dargli da mangiare',
-                    status: 'sent'
+                    status: 'sent',
+                    dropDown: true,
                   },
                   {
                     date: '10/01/2020 16:15:22',
                     message: 'Tutto fatto!',
-                    status: 'received'
+                    status: 'received',
+                    dropDown: true,
                   }
                 ],
               },
@@ -42,21 +44,23 @@ createApp({
                 name: 'Fabio',
                 avatar: '_2',
                 visible: true,
-                dropDown: true,
                 messages: [{
-                    date: '20/03/2020 16:30:00',
-                    message: 'Ciao come stai?',
-                    status: 'sent'
+                  date: '20/03/2020 16:30:00',
+                  message: 'Ciao come stai?',
+                  status: 'sent',
+                  dropDown: true,
                   },
                   {
                     date: '20/03/2020 16:30:55',
                     message: 'Bene grazie! Stasera ci vediamo?',
-                    status: 'received'
+                    status: 'received',
+                    dropDown: true,
                   },
                   {
                     date: '20/03/2020 16:35:00',
                     message: 'Mi piacerebbe ma devo andare a fare la spesa.',
-                    status: 'received'
+                    status: 'received',
+                    dropDown: true,
                   }
                 ],
               },
@@ -64,21 +68,23 @@ createApp({
                 name: 'Samuele',
                 avatar: '_3',
                 visible: true,
-                dropDown: true,
                 messages: [{
-                    date: '28/03/2020 10:10:40',
-                    message: 'La Marianna va in campagna',
-                    status: 'received'
+                  date: '28/03/2020 10:10:40',
+                  message: 'La Marianna va in campagna',
+                  status: 'received',
+                  dropDown: true,
                   },
                   {
                     date: '28/03/2020 10:20:10',
                     message: 'Sicuro di non aver sbagliato chat?',
-                    status: 'sent'
+                    status: 'sent',
+                    dropDown: true,
                   },
                   {
                     date: '28/03/2020 16:15:22',
                     message: 'Ah scusa!',
-                    status: 'received'
+                    status: 'received',
+                    dropDown: true,
                   }
                 ],
               },
@@ -86,16 +92,17 @@ createApp({
                 name: 'Luisa',
                 avatar: '_4',
                 visible: true,
-                dropDown: true,
                 messages: [{
-                    date: '10/01/2020 15:30:55',
-                    message: 'Lo sai che ha aperto una nuova pizzeria?',
-                    status: 'sent'
+                  date: '10/01/2020 15:30:55',
+                  message: 'Lo sai che ha aperto una nuova pizzeria?',
+                  status: 'sent',
+                  dropDown: true,
                   },
                   {
                     date: '10/01/2020 15:50:00',
                     message: 'Si, ma preferirei andare al cinema',
-                    status: 'received'
+                    status: 'received',
+                    dropDown: true,
                   }
                 ],
               },
@@ -119,7 +126,8 @@ createApp({
         const userMessage= {
           date: '',
           message: this.newMessage,
-          status: 'sent'
+          status: 'sent',
+          dropDown: true
         };
         this.contacts[this.activeUser].messages.push(userMessage);
         this.newMessage = '';
@@ -129,7 +137,8 @@ createApp({
         const answer= {
           date: '',
           message: 'ok',
-          status: 'received'
+          status: 'received',
+          dropDown: true,
         }
         this.contacts[this.activeUser].messages.push(answer);
       },
@@ -140,18 +149,18 @@ createApp({
       },
       // funzione che regola lo stato di visibilità del dropdown menu
       // index ---> indice che seleziona il messaggio su cui è stato chiamto il dropdown
-      showDropDown(indexMessage){
-        if (this.contacts[indexMessage].dropDown){
-          this.contacts[indexMessage].dropDown = false;
+      showDropDown(index){
+        if (this.contacts[this.activeUser].messages[index].dropDown){
+          this.contacts[this.activeUser].messages[index].dropDown = false;
         }else{
-          this.contacts[indexMessage].dropDown = true;
+          this.contacts[this.activeUser].messages[index].dropDown = true;
         }
       },
       // funzione che chiude il dropdown menu quando il mouse lascia l'area del messaggio
       // index ---> indice che seleziona il messaggio su cui è stato chiamto il dropdown
       mouseLeaveDropDown(indexMessage){
-        if (!this.contacts[indexMessage].dropDown){
-          this.contacts[indexMessage].dropDown = true;
+        if (!this.contacts[this.activeUser].messages[indexMessage].dropDown){
+          this.contacts[this.activeUser].messages[indexMessage].dropDown = true;
         }
       },
       // funzione che elimina i messaggi dalla chat

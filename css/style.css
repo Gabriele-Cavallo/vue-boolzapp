@@ -273,6 +273,21 @@ i{
 .dropdown-wrapper div:hover{
     color: black
 }
+.chevron{
+    display: none;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.chevron i{
+    font-size: 20px;
+    margin: 0;
+}
+.chat-bubble-user:hover .chevron,
+.answer-text:hover .chevron{
+    display: block;
+}
 /* #endregion DROPDOWN-MENU */
 
 
