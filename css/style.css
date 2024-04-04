@@ -274,7 +274,7 @@ i{
 
 
 /* #region MEDIA-QUERY */
-@media screen and (max-width: 1280px){
+@media screen and (max-width: 1400px){
     .app-container{
         min-width: 1200px;
         min-height: 95vh;
