@@ -233,8 +233,8 @@ i{
     align-items: center;
 }
 .chat-bubble{
-    width: 20%;
-    padding: 15px 10px;
+    width: 40%;
+    padding: 20px 10px;
     border-radius: 10px;
     margin-bottom: 10px;
 }
@@ -249,7 +249,7 @@ i{
     right: 5px;
     bottom: 3px;
     color: grey;
-    font-size: smaller;
+    font-size: 12px;
 }
 /* #endregion ACTIVE-CHAT */
 

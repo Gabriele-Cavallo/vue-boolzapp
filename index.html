@@ -105,7 +105,7 @@
                                 <div>
                                     {{chatMessage.message}}
                                 </div>
-                                <small class="send-time">[send-time]</small>
+                                <small class="send-time">{{chatMessage.date}}</small>
                                 <div v-if="!contacts[index].dropDown"  class="dropdown-wrapper" :class="{'chat-bubble-user': chatMessage.status === 'sent', 'answer-text': chatMessage.status === 'received'}">
                                     <div>Message Info</div>
                                     <div @click="deleteMessage(index)">Delete Message</div>
