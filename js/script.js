@@ -12,6 +12,7 @@
 // - Click sul contatto mostra la conversazione del contatto cliccato
 const { createApp } = Vue;
 const dt = luxon.DateTime;
+const realTime = luxon.DateTime;
 
 createApp({
     data() {
@@ -112,7 +113,8 @@ createApp({
             // chiave che valorizza il messaggio inserito dall'utente nell'input
             newMessage: '',
             // chiave che regola la search bar dei contact
-            searchList: ''
+            searchList: '',
+            time: ''
         };
     },
     methods: {
@@ -173,7 +175,14 @@ createApp({
       // funzione per avere data e ora corrente
       getCurrentDate(){
         this.contacts[this.activeUser].messages.date = dt.now().setLocale('fr').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
+      },
+      // funzione per avere data e ora corrente nella chiave time
+      realTimeDate(){
+        this.time = realTime.now().setLocale('fr').toLocaleString(realTime.DATETIME_SHORT_WITH_SECONDS);
       }
+    },
+    mounted() {
+      this.realTimeDate();
     },
     computed: {
       // funzione che filtra l'array contacts 
