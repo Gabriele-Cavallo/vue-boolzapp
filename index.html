@@ -130,7 +130,7 @@
                     <div class="text-user-input d-flex algn-cntr">
                         <i class="fa-regular fa-face-smile w-10"></i>
                         <!-- Input user text message -->
-                        <input v-model="newMessage" @keyUp.enter="writeMessage(), answerTimeout(answerMessage)" type="text" placeholder="Scrivi un messaggio" class="grow h-75">
+                        <input v-model="newMessage" @keyDown.enter="getCurrentDate()" @keyUp.enter="writeMessage(), answerTimeout(answerMessage)" type="text" placeholder="Scrivi un messaggio" class="grow h-75">
                         <!-- Input user text message -->
                         <i class="fa-solid fa-microphone w-10"></i>
                     </div>
@@ -144,11 +144,11 @@
     <!-- Vue-JS Script -->
     <script src="https://unpkg.com/vue@3"></script>
     <!-- /Vue-JS Script -->
-    <!-- MyJavascript -->
-    <script type="text/javascript" src="./js/script.js"></script>
-    <!-- /MyJavascript -->
     <!-- Luxon script -->
     <script src=" https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js "></script>
     <!-- /Luxon script -->
+    <!-- MyJavascript -->
+    <script type="text/javascript" src="./js/script.js"></script>
+    <!-- /MyJavascript -->
 </body>
 </html>

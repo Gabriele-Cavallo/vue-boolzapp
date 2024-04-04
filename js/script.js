@@ -11,7 +11,7 @@
 //   relativi al contatto attivo all’interno del pannello della conversazione
 // - Click sul contatto mostra la conversazione del contatto cliccato
 const { createApp } = Vue;
-// const dateTime = luxon.DateTime;
+const dt = luxon.DateTime;
 
 createApp({
     data() {
@@ -124,7 +124,7 @@ createApp({
       // funzione che legge l'input dell'utente e lo aggiunge all'elenco della chat
       writeMessage(){
         const userMessage= {
-          date: '',
+          date: this.contacts[this.activeUser].messages.date,
           message: this.newMessage,
           status: 'sent',
           dropDown: true
@@ -135,7 +135,7 @@ createApp({
       // funzione che genera il messaggio di risposta
       answerMessage(){
         const answer= {
-          date: '',
+          date: this.contacts[this.activeUser].messages.date,
           message: 'ok',
           status: 'received',
           dropDown: true,
@@ -169,8 +169,8 @@ createApp({
         this.contacts[this.activeUser].messages.splice(indexMessage, 1);
       },
       // funzione per avere data e ora corrente
-      getCurrentDate(index){
-        this.contacts[activeUser].messages[index].date = dateTime.now().setLocale('fr').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
+      getCurrentDate(){
+        this.contacts[this.activeUser].messages.date = dt.now().setLocale('fr').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
       }
     },
     computed: {
