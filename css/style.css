@@ -216,6 +216,9 @@ i{
     color: grey;
 }
 .contacts .selected{
+    background-color: lightgray;
+}
+.col-30 .user-card:hover{
     background-color: #e9ebeb;
 }
 /* #endregion USER-CARD */
