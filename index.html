@@ -12,133 +12,130 @@
 <body>
     <!-- Vue-JS HTML Container -->
     <div id="app">
-        <header></header>
-        <main>
-            <div class="app-container anchor d-flex">
-                <!-- User/Contacts Col -->
-                <div class="col-30 d-flex flex-col">
-                    <!-- User menu -->
-                    <div class="user d-flex jst-btwn algn-cntr">
-                        <!-- User template -->
-                        <div class="user-card d-flex algn-cntr cursor-pointer">
-                            <img src="./img/avatar_io.jpg" alt="active user image">
-                            <div class="user-info">
-                                <div class="fw-bold">Sofia</div>
-                            </div>
-                        </div>
-                        <!-- /User template -->
-                        <div class="user-menu">
-                            <i class="fa-solid fa-circle-notch"></i>
-                            <i class="fa-solid fa-message"></i>
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
+        <div class="app-container anchor d-flex">
+            <!-- User/Contacts Col -->
+            <div class="col-30 d-flex flex-col">
+                <!-- User menu -->
+                <div class="user d-flex jst-btwn algn-cntr">
+                    <!-- User template -->
+                    <div class="user-card d-flex algn-cntr cursor-pointer">
+                        <img src="./img/avatar_io.jpg" alt="active user image">
+                        <div class="user-info">
+                            <div class="fw-bold">Sofia</div>
                         </div>
                     </div>
-                    <!-- Notification section -->
-                    <div class="notification d-flex algn-cntr">
-                        <div class="item-container d-flex jst-cntr algn-cntr">
-                            <i class="fa-solid fa-bell-slash"></i>
-                        </div>
-                        <div class="notification-container">
-                            <div>Ricevi notifiche nuovi messaggi</div>
-                            <a href="#">Attiva notifiche desktop</a>
-                        </div>
+                    <!-- /User template -->
+                    <div class="user-menu">
+                        <i class="fa-solid fa-circle-notch"></i>
+                        <i class="fa-solid fa-message"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
-                    <!-- /Notification section -->
-                    <!-- Contact search bar -->
-                    <div class="user-search d-flex algn-cntr jst-cntr">
-                        <div class="search-bar d-flex algn-cntr">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                            <input @keyUp="searchContact()" v-model="searchList" type="text" placeholder="Cerca o inizia una nuova chat">
-                        </div>
-                    </div>
-                    <!-- /Contact search bar -->
-                    <!-- /User menu -->
-
-                    <!-- Contacts List -->
-                    <div class="contacts grow">
-                        <div 
-                        v-for="singleUser, index in contacts" 
-                        class="user-card d-flex algn-cntr anchor cursor-pointer"
-                        @click="selectContac(index)"
-                        :class="{'selected': index === activeUser, 'hide': !singleUser.visible}"
-                        >
-                            <!-- Single contact template -->
-                            <img :src="'./img/avatar' + singleUser.avatar + '.jpg'" alt="active user image">
-                            <div class="user-info">
-                                <div class="fw-bold">{{singleUser.name}}</div>
-                                <div class="access-info">{{time}}</div>
-                                <div class="last-message">{{singleUser.messages[singleUser.messages.length - 1].message}}</div>
-                            </div>
-                            <!-- /Single contact template -->
-                        </div>
-                    </div>
-                    <!-- /Contacts List -->
                 </div>
-                <!-- /User/Contacts Col -->
-
-                <!-- Chat Col -->
-                <div class="col-70">
-                    <!-- Active user bar -->
-                    <div class="active-user d-flex jst-btwn algn-cntr">
-                        <!-- User card -->
-                        <div class="user-card d-flex algn-cntr">
-                            <img :src="'./img/avatar' + contacts[activeUser].avatar + '.jpg'" alt="active user image">
-                            <div class="user-info">
-                                <div class="fw-bold">{{contacts[activeUser].name}}</div>
-                                <div class="time-access">{{time}}</div>
-                            </div>
-                        </div>
-                        <!-- /User card -->
-                        <div class="user-action">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                            <i class="fa-solid fa-paperclip"></i>
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                        </div>
+                <!-- Notification section -->
+                <div class="notification d-flex algn-cntr">
+                    <div class="item-container d-flex jst-cntr algn-cntr">
+                        <i class="fa-solid fa-bell-slash"></i>
                     </div>
-                    <!-- /Active user bar -->
-
-                    <!-- Bubble chat template -->
-                    <div class="active-chat">
-                        <div 
-                        v-for="chatMessage, index in contacts[activeUser].messages"  
-                        :class="{'user-text': chatMessage.status === 'sent'}"
-                        >
-                            <div @mouseLeave="mouseLeaveDropDown(index)" class="chat-bubble anchor" :class="{'chat-bubble-user': chatMessage.status === 'sent', 'answer-text': chatMessage.status === 'received', 'info-text': chatMessage.status === 'info'}">
-                                <!-- Text bubble chat -->
-                                <div>
-                                    {{chatMessage.message}}
-                                </div>
-                                <small class="send-time">{{chatMessage.date}}</small>
-                                <!-- /Text bubble chat -->
-                                <!-- Dropdown activation button -->
-                                <div class="chevron cursor-pointer" @click="showDropDown(index)">
-                                    <i class="fa-solid fa-chevron-down"></i>
-                                </div>
-                                <!-- Dropdown activation button -->
-                                <!-- Dropdown menu wrapper -->
-                                <div v-if="!contacts[activeUser].messages[index].dropDown"  class="dropdown-wrapper" :class="{'chat-bubble-user': chatMessage.status === 'sent', 'answer-text': chatMessage.status === 'received'}">
-                                    <div>Message Info</div>
-                                    <div @click="deleteMessage(index)">Delete Message</div>
-                                </div>
-                                <!-- /Dropdown menu wrapper -->
-                            </div>
-                        </div>
+                    <div class="notification-container">
+                        <div>Ricevi notifiche nuovi messaggi</div>
+                        <a href="#">Attiva notifiche desktop</a>
                     </div>
-                    <!-- /Bubble chat template -->
-
-                    <!-- User input bar -->
-                    <div class="text-user-input d-flex algn-cntr">
-                        <i class="fa-regular fa-face-smile w-10"></i>
-                        <!-- Input user text message -->
-                        <input v-model="newMessage" @keyDown.enter="getCurrentDate()" @keyUp.enter="writeMessage(), answerTimeout(answerMessage), getCurrentDate()" type="text" placeholder="Scrivi un messaggio" class="grow h-75">
-                        <!-- Input user text message -->
-                        <i class="fa-solid fa-microphone w-10"></i>
-                    </div>
-                    <!-- /User input bar -->
                 </div>
-                <!-- /Chat Col -->
+                <!-- /Notification section -->
+                <!-- Contact search bar -->
+                <div class="user-search d-flex algn-cntr jst-cntr">
+                    <div class="search-bar d-flex algn-cntr">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input @keyUp="searchContact()" v-model="searchList" type="text" placeholder="Cerca o inizia una nuova chat">
+                    </div>
+                </div>
+                <!-- /Contact search bar -->
+                <!-- /User menu -->
+
+                <!-- Contacts List -->
+                <div class="contacts grow">
+                    <div 
+                    v-for="singleUser, index in contacts" 
+                    class="user-card d-flex algn-cntr anchor cursor-pointer"
+                    @click="selectContac(index)"
+                    :class="{'selected': index === activeUser, 'hide': !singleUser.visible}"
+                    >
+                        <!-- Single contact template -->
+                        <img :src="'./img/avatar' + singleUser.avatar + '.jpg'" alt="active user image">
+                        <div class="user-info">
+                            <div class="fw-bold">{{singleUser.name}}</div>
+                            <div class="access-info">{{time}}</div>
+                            <div class="last-message">{{singleUser.messages[singleUser.messages.length - 1].message}}</div>
+                        </div>
+                        <!-- /Single contact template -->
+                    </div>
+                </div>
+                <!-- /Contacts List -->
             </div>
-        </main>
+            <!-- /User/Contacts Col -->
+
+            <!-- Chat Col -->
+            <div class="col-70">
+                <!-- Active user bar -->
+                <div class="active-user d-flex jst-btwn algn-cntr">
+                    <!-- User card -->
+                    <div class="user-card d-flex algn-cntr">
+                        <img :src="'./img/avatar' + contacts[activeUser].avatar + '.jpg'" alt="active user image">
+                        <div class="user-info">
+                            <div class="fw-bold">{{contacts[activeUser].name}}</div>
+                            <div class="time-access">{{time}}</div>
+                        </div>
+                    </div>
+                    <!-- /User card -->
+                    <div class="user-action">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-paperclip"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                </div>
+                <!-- /Active user bar -->
+
+                <!-- Bubble chat template -->
+                <div class="active-chat">
+                    <div 
+                    v-for="chatMessage, index in contacts[activeUser].messages"  
+                    :class="{'user-text': chatMessage.status === 'sent'}"
+                    >
+                        <div @mouseLeave="mouseLeaveDropDown(index)" class="chat-bubble anchor" :class="{'chat-bubble-user': chatMessage.status === 'sent', 'answer-text': chatMessage.status === 'received', 'info-text': chatMessage.status === 'info'}">
+                            <!-- Text bubble chat -->
+                            <div>
+                                {{chatMessage.message}}
+                            </div>
+                            <small class="send-time">{{chatMessage.date}}</small>
+                            <!-- /Text bubble chat -->
+                            <!-- Dropdown activation button -->
+                            <div class="chevron cursor-pointer" @click="showDropDown(index)">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </div>
+                            <!-- Dropdown activation button -->
+                            <!-- Dropdown menu wrapper -->
+                            <div v-if="!contacts[activeUser].messages[index].dropDown"  class="dropdown-wrapper" :class="{'chat-bubble-user': chatMessage.status === 'sent', 'answer-text': chatMessage.status === 'received'}">
+                                <div>Message Info</div>
+                                <div @click="deleteMessage(index)">Delete Message</div>
+                            </div>
+                            <!-- /Dropdown menu wrapper -->
+                        </div>
+                    </div>
+                </div>
+                <!-- /Bubble chat template -->
+
+                <!-- User input bar -->
+                <div class="text-user-input d-flex algn-cntr">
+                    <i class="fa-regular fa-face-smile w-10"></i>
+                    <!-- Input user text message -->
+                    <input v-model="newMessage" @keyDown.enter="getCurrentDate()" @keyUp.enter="writeMessage(), answerTimeout(answerMessage), getCurrentDate()" type="text" placeholder="Scrivi un messaggio" class="grow h-75">
+                    <!-- Input user text message -->
+                    <i class="fa-solid fa-microphone w-10"></i>
+                </div>
+                <!-- /User input bar -->
+            </div>
+            <!-- /Chat Col -->
+        </div>
     </div>
     <!-- /Vue-JS HTML Container -->
     <!-- Vue-JS Script -->

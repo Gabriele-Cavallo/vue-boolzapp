@@ -7,22 +7,15 @@
 }
 body{
     position: relative;
-    background-color: #dbdbd3;
+    background: linear-gradient(#009688 0%, #009688 20%, #dbdbd3 20% 100%);
     font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
 }
 /* #endregion RESET */
 
 /* #region GENERAL */
 img{
     max-width: 100%;
-}
-header{
-    height: 20vh;
-    background-color: #009688;
-}
-main{
-    height: 80vh;
-    background-color: #dbdbd3;
 }
 .anchor{
     position: relative;
@@ -309,25 +302,22 @@ i{
     .app-container{
         min-width: 1200px;
         min-height: 95vh;
-        position: relative;
         top:50%;
         left: 50%;
         transform: translate(-50% , -50%);
     }
-    header{
-        width: 200vw;
-    }
-    main{
-        width: 200%;
+}
+@media screen and (max-width: 1220px){
+    .app-container{
+        top:50%;
+        left: 69%;
+        transform: translate(-25% , -50%);
     }
 }
 @media screen and (max-height: 900px){
     .app-container{
         min-height: 760px;
-        position: relative;
-        top:50%;
-        left: 50%;
-        transform: translate(-50% , -50%);
+        min-width: 1200px;
     }
     .last-message{
         display: none;
@@ -335,6 +325,16 @@ i{
     .time-access,
     .access-info{
         font-size: 12px;
+    }
+}
+@media screen and (max-height: 760px){
+    .app-container{
+        top:75%;
+    }
+}
+@media screen and (max-height: 500px){
+    .app-container{
+        top:100%;
     }
 }
 /* #endregion MEDIA-QUERY */
