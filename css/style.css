@@ -102,10 +102,9 @@ i{
     color: #b1b1b1;
 }
 .notification{
-    height: 10%;
+    max-height: 80px;
     background-color: #8edafc;
-    padding-left: 20px;
-    padding-right: 10px;
+    padding: 10px 10px 10px 20px;
 }
 .notification .item-container{
     background-color: white;
