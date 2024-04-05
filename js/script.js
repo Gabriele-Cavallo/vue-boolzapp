@@ -127,6 +127,11 @@ createApp({
       },
       // funzione che legge l'input dell'utente e lo aggiunge all'elenco della chat
       writeMessage(){
+        // se nella chat è presente il messaggio di info che indica l'assenza di messaggi
+        // rimuove il messaggio dalla chat e poi pusha il messaggio dell'utente
+        if (this.contacts[this.activeUser].messages[0].status === 'info'){
+          this.contacts[this.activeUser].messages.splice(0 , 1) 
+        }
         const userMessage= {
           // data e ora attuale
           date: this.currentDate,
@@ -144,6 +149,17 @@ createApp({
           date: this.currentDate,
           message: 'ok',
           status: 'received',
+          dropDown: true,
+        }
+        this.contacts[this.activeUser].messages.push(answer);
+      },
+      // funzione che genera un messaggio di avviso quando la chat è vuota
+      noMessage(){
+        const answer= {
+          // data e ora attuale
+          date: '',
+          message: 'Non ci sono messaggi',
+          status: 'info',
           dropDown: true,
         }
         this.contacts[this.activeUser].messages.push(answer);
@@ -173,6 +189,12 @@ createApp({
       // indexMessage ---> indice del messaggio da cancellare
       deleteMessage(indexMessage){
         this.contacts[this.activeUser].messages.splice(indexMessage, 1);
+        // se vengono cancellati tutti i messaggi della chat 
+        // viene richiamata la funzione che genera un messaggio di servizio
+        if(this.contacts[this.activeUser].messages.length === 0){
+          // funzione che crea un messaggio di info con scritto che la chat è vuota
+          this.noMessage();
+        }
       },
       // funzione per avere data e ora corrente
       getCurrentDate(){

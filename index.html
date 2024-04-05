@@ -103,7 +103,7 @@
                         v-for="chatMessage, index in contacts[activeUser].messages"  
                         :class="{'user-text': chatMessage.status === 'sent'}"
                         >
-                            <div @mouseLeave="mouseLeaveDropDown(index)" class="chat-bubble anchor" :class="{'chat-bubble-user': chatMessage.status === 'sent', 'answer-text': chatMessage.status === 'received'}">
+                            <div @mouseLeave="mouseLeaveDropDown(index)" class="chat-bubble anchor" :class="{'chat-bubble-user': chatMessage.status === 'sent', 'answer-text': chatMessage.status === 'received', 'info-text': chatMessage.status === 'info'}">
                                 <!-- Text bubble chat -->
                                 <div>
                                     {{chatMessage.message}}

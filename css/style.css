@@ -252,6 +252,12 @@ i{
 .answer-text{
     background-color: white;
 }
+.info-text{
+    background-color: aqua;
+    text-align: center;
+    font-weight: bold;
+    width: 100%;
+}
 .send-time{
     position: absolute;
     right: 5px;
