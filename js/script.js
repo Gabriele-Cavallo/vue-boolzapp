@@ -198,14 +198,5 @@ createApp({
     mounted() {
       // funzione che al caricamento della pagina ricava data e ora attuali
       this.realTimeDate();
-    },
-    // computed: {
-    //   // funzione che filtra l'array contacts 
-    //   // return: torna un nuovo array filtrato tramite la search bar
-    //   searchContact(){
-    //     return this.contacts.filter((contact) => {
-    //       return contact.name.toLowerCase().includes(this.searchList.toLowerCase());
-    //     });
-    //   }
-    // }
+    }
 }).mount('#app');

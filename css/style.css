@@ -92,6 +92,9 @@ i{
 .cursor-pointer{
     cursor: pointer;
 }
+.hide{
+    display: none;
+}
 /* #endregion GENERAL */
 
 /* #region COL-30 */
