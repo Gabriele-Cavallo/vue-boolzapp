@@ -114,6 +114,7 @@ createApp({
             newMessage: '',
             // chiave che regola la search bar dei contact
             searchList: '',
+            // chiavi per lleggere data e ora attuale
             currentDate: '',
             time: ''
         };
@@ -180,19 +181,31 @@ createApp({
       // funzione per avere data e ora corrente nella chiave time
       realTimeDate(){
         this.time = realTime.now().setLocale('fr').toLocaleString(realTime.DATETIME_SHORT_WITH_SECONDS);
+      },
+      // funzione che filtra il value dell'input nella search bar e imposta il valore di visibile true o false
+      searchContact(){
+        this.contacts.forEach(singleContact => {
+          if (this.searchList === ''){
+            singleContact.visible = true;
+          }else if(singleContact.name.toLowerCase().includes(this.searchList.toLowerCase())) {
+            singleContact.visible = true;
+          }else{
+            singleContact.visible = false;
+          }
+        });
       }
     },
     mounted() {
       // funzione che al caricamento della pagina ricava data e ora attuali
       this.realTimeDate();
     },
-    computed: {
-      // funzione che filtra l'array contacts 
-      // return: torna un nuovo array filtrato tramite la search bar
-      searchContact(){
-        return this.contacts.filter((contact) => {
-          return contact.name.toLowerCase().includes(this.searchList.toLowerCase());
-        });
-      }
-    }
+    // computed: {
+    //   // funzione che filtra l'array contacts 
+    //   // return: torna un nuovo array filtrato tramite la search bar
+    //   searchContact(){
+    //     return this.contacts.filter((contact) => {
+    //       return contact.name.toLowerCase().includes(this.searchList.toLowerCase());
+    //     });
+    //   }
+    // }
 }).mount('#app');

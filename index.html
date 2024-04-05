@@ -57,7 +57,7 @@
                     <!-- Contacts List -->
                     <div class="contacts grow">
                         <div 
-                        v-for="singleUser, index in searchContact" 
+                        v-for="singleUser, index in contacts" 
                         class="user-card d-flex algn-cntr anchor cursor-pointer"
                         @click="selectContac(index)"
                         :class="{'selected': index === activeUser}"
@@ -65,7 +65,7 @@
                             <!-- Single contact template -->
                             <img :src="'./img/avatar' + singleUser.avatar + '.jpg'" alt="active user image">
                             <div class="user-info">
-                                <div class="fw-bold">{{singleUser.name}}</div>
+                                <div class="fw-bold">{{singleUser.visible}}</div>
                                 <div class="access-info">{{time}}</div>
                                 <div class="last-message">{{singleUser.messages[singleUser.messages.length - 1].message}}</div>
                             </div>
