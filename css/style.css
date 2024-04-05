@@ -234,7 +234,7 @@ i{
 }
 .chat-bubble{
     width: 40%;
-    padding: 20px 10px;
+    padding: 20px 40px 20px 10px;
     border-radius: 10px;
     margin-bottom: 10px;
 }
